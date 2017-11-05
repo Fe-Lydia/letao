@@ -6,7 +6,7 @@ define(['jquery'], function($) {
         type: 'get',
         success: function(info) {
             if (info.error) {
-                // location.href = '/login.html';
+                location.href = '/login.html';
             }
         }
     })
