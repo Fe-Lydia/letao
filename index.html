@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>乐淘 - 后台管理</title>
-    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="./assets/nprogress/nprogress.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="/public/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="/public/assets/nprogress/nprogress.css">
+    <link rel="stylesheet" href="/public/css/index.css">
 </head>
+
 <body>
-    
+
     <!-- 侧边栏 -->
     <div class="aside">
         <!-- 个人资料 -->
@@ -25,20 +27,17 @@
             <ul class="list-unstyled">
                 <li>
                     <a href="./index.html" class="active">
-                        <i class="fa fa-dashboard"></i>
-                        仪表盘
+                        <i class="fa fa-dashboard"></i> 仪表盘
                     </a>
                 </li>
                 <li>
                     <a href="./user_list.html">
-                        <i class="fa fa-group"></i>
-                        用户管理
+                        <i class="fa fa-group"></i> 用户管理
                     </a>
                 </li>
                 <li>
                     <a href="javascript:;">
-                        <i class="fa fa-indent"></i>
-                        分类管理
+                        <i class="fa fa-indent"></i> 分类管理
                         <i class="arrow fa fa-angle-right"></i>
                     </a>
                     <ul class="list-unstyled">
@@ -56,8 +55,7 @@
                 </li>
                 <li>
                     <a href="./goods_list.html">
-                        <i class="fa fa-cubes pull-left"></i>
-                        商品管理
+                        <i class="fa fa-cubes pull-left"></i> 商品管理
                     </a>
                 </li>
             </ul>
@@ -77,14 +75,12 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a href="./settings.html">
-                                <i class="fa fa-user"></i>
-                                个人中心
+                                <i class="fa fa-user"></i> 个人中心
                             </a>
                         </li>
                         <li>
                             <a href="javascript:;">
-                                <i class="fa fa-sign-out"></i>
-                                退出
+                                <i class="fa fa-sign-out"></i> 退出
                             </a>
                         </li>
                         <li>
@@ -93,7 +89,7 @@
                             </a>
                         </li>
                     </ul>
-                </nav>          
+                </nav>
             </div>
             <!-- 个人资料 -->
             <div class="body dashboard">
@@ -133,13 +129,43 @@
             </div>
         </div>
     </div>
-    
-    <script src="./assets/jquery/jquery.min.js"></script>
-    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./assets/nprogress/nprogress.js"></script>
-    <script src="./assets/echarts/echarts.min.js"></script>
-    <script src="./js/common.js"></script>
+
+    <script src="/public/assets/jquery/jquery.min.js"></script>
+    <script src="/public/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/public/assets/nprogress/nprogress.js"></script>
+    <script src="/public/assets/echarts/echarts.min.js"></script>
+    <script src="/public/js/common.js"></script>
     <script>
+        //验证服务器是否配好 发送请求 之后可以删除
+        // $.ajax({
+        //     //真正地址http://localhost:3000/employee/employeeLogin
+        //     url: '/api/employee/employeeLogin',
+        //     type: 'post',
+        //     success: function(info) {
+        //         console.log(info);
+        //     }
+        // })
+
+        //判断员工是否登录 发送请求
+        $.ajax({
+            // /api http://localhost:3000
+            url: '/api/employee/checkRootLogin',
+            type: 'get',
+            success: function(info) {
+                if (info.error) {
+                    location.href = '/login.html';
+                }
+            }
+        })
+
+
+
+
+
+
+
+
+
 
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
@@ -151,10 +177,10 @@
             },
             tooltip: {},
             legend: {
-                data:['销量']
+                data: ['销量']
             },
             xAxis: {
-                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
             },
             yAxis: {},
             series: [{
@@ -166,7 +192,7 @@
 
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
-
     </script>
 </body>
+
 </html>
