@@ -22,4 +22,5 @@ define(['jquery'], function($) {
             }
         })
     })
+
 });
