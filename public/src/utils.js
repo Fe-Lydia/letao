@@ -10,7 +10,11 @@ define(['jquery'], function($) {
                 }
             }
         })
+<<<<<<< HEAD
         //退出
+=======
+        // 退出登录
+>>>>>>> feature-product
     $('.logout').on('click', function() {
         $.ajax({
             url: '/api/employee/employeeLogout',
